@@ -7,7 +7,7 @@ interface Props {
   turnoActivo: string;
 }
 
-export const Filtros = ({ onCambiarTurno, turnoActivo }: Props) => {
+const Filtros = ({ onCambiarTurno, turnoActivo }: Props) => {
   return (
     <div>
       <button
@@ -57,3 +57,5 @@ export const Filtros = ({ onCambiarTurno, turnoActivo }: Props) => {
     </div>
   );
 };
+
+export default Filtros;

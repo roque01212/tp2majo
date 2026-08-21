@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Encabezado } from "./components/Encabezado/Encabezado";
-import { Filtros } from "./components/Filtros/Filtros";
+import Filtros from "./components/Filtros/Filtros";
 import { ListaComisiones } from "./components/ListaComisiones/ListaComisiones";
 import { SinResultados } from "./components/SinResultados/SinResultados";
 import { comisiones } from "./data/data";
@@ -35,10 +35,6 @@ export const App = () => {
       ? datos
       : datos.filter((comision) => comision.turno === turnoSeleccionado);
 
-  if (!datos) {
-    return <SinResultados />;
-  }
-
   return (
     <div>
       <Encabezado
@@ -46,7 +42,12 @@ export const App = () => {
         cantidadComisiones={countComisiones}
         totalDisponible={totalDisponibles}
       />
-      <Filtros onCambiarTurno={onCambiarTurno} turnoActivo={turnoActivo} />
+      {!datos.length ? (
+        <SinResultados />
+      ) : (
+        <Filtros onCambiarTurno={onCambiarTurno} turnoActivo={turnoActivo} />
+      )}
+
       <ListaComisiones comisiones={comisionesFiltradas} />
     </div>
   );
