@@ -1,4 +1,3 @@
-import { useState } from "react";
 import type { turno } from "../../App";
 
 import styles from "./Filtro.module.css";
@@ -9,7 +8,6 @@ interface Props {
 }
 
 export const Filtros = ({ onCambiarTurno, turnoActivo }: Props) => {
-  const [active, setActive] = useState(false);
   return (
     <div>
       <button
